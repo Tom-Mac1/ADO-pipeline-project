@@ -5,7 +5,7 @@ pool:
   vmImage: 'ubuntu-latest'  
 
 jobs:
-- job: setup-python-environment  
+- job: setup_python_environment  
   steps:
   - script: |
       # Check out your code from the repository
