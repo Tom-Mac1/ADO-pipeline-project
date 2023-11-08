@@ -17,3 +17,19 @@ steps:
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
+
+jobs:
+  setup-python-environment:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Python environment
+      run: |
+        cd {File_Path}
+        py -m venv .venv
+        .venv\Scripts\activate
+        pip install -r requirements.txt
+      shell: cmd
