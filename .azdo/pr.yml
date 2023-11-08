@@ -1,26 +1,16 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
-
 trigger:
 - feat/*
 
 pool:
-  vmImage: ubuntu-latest
+  vmImage: 'ubuntu-latest'  
 
 jobs:
-  name: setup-python-environment
-    runs-on: windows-latest
-
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-
-    - name: Set up Python environment
-      run: |
-        cd {File_Path}
-        py -m venv .venv
-        .venv\Scripts\activate
-        pip install -r requirements.txt
-      shell: cmd
+- job: setup-python-environment  
+  steps:
+  - script: |
+      # Check out your code from the repository
+      cd $(File_Path)
+      python -m venv .venv
+      .venv/bin/activate  
+      pip install -r requirements.txt
+    displayName: 'Set up Python environment'
