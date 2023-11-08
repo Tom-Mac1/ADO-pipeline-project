@@ -10,7 +10,7 @@ pool:
   vmImage: ubuntu-latest
 
 jobs:
-  setup-python-environment:
+  - setup-python-environment:
     runs-on: windows-latest
 
     steps:
