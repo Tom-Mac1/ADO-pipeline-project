@@ -9,7 +9,7 @@ jobs:
   steps:
   - script: |
       # Check out your code from the repository
-      cd $(File_Path)
+      cd "$(Build.SourcesDirectory)/src/msdocs-python-flask-webapp-quickstart"
       python -m venv .venv
       .venv/bin/activate  
       pip install -r requirements.txt
