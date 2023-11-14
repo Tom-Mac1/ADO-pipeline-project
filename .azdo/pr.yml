@@ -14,3 +14,7 @@ jobs:
       .venv/bin/activate  
       pip install -r requirements.txt
     displayName: 'Set up Python environment'
+- job: run_unit_test
+  steps:
+  -script: |
+      test/python endpoint_test.py
